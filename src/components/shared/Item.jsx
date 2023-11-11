@@ -7,7 +7,7 @@ const Item = ({item}) => {
                 <img src={item.image} alt="" className='' style={{borderRadius: '0px 200px 200px 200px'}}/>
             </div>
             <div>
-                <h3 className='font-cinzel text-xl font-normal text-[#151515]'>{item.name}</h3>
+                <h3 className='font-cinzel text-xl font-normal text-[#151515]'>{item.name}   --------------------</h3>
                 <p className='text-[#737373] font-inter font-normal text-base'>{item.recipe}</p>
             </div>
             <div className='text-[#BB8506] font-inter text-xl font-normal '>
