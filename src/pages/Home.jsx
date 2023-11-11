@@ -1,9 +1,10 @@
+import Banner from "../components/forHomePage/Banner";
 
 
 const Home = () => {
     return (
         <div>
-            Hello Bangladesh
+            <Banner></Banner>
         </div>
     );
 };
