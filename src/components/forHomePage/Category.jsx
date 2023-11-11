@@ -7,11 +7,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import SectionTitle from '../shared/SectionTitle';
 
 
 const Category = () => {
     return (
-        <Swiper
+       <div>
+        <SectionTitle heading={"order online"} subHeading='From 11:00am to 10:00pm'></SectionTitle>
+         <Swiper
         slidesPerView={4}
         spaceBetween={30}
         centeredSlides={true}
@@ -37,6 +40,7 @@ const Category = () => {
         <h2 className='uppercase text-4xl -mt-16 text-center text-white'>Salads</h2>
         </SwiperSlide>
       </Swiper>
+       </div>
     );
 };
 
