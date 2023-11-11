@@ -25,19 +25,19 @@ const Category = () => {
         className="mySwiper mb-10"
       >
         <SwiperSlide><img src={slide1} alt="" />
-        <h2 className='uppercase text-4xl -mt-16 text-center text-white'>Salads</h2>
+        <h2 className='uppercase text-[32px] -mt-20 text-center text-white font-cinzel font-normal'>Salads</h2>
         </SwiperSlide>
         <SwiperSlide><img src={slide2} alt="" />
-        <h2 className='uppercase text-4xl -mt-16 text-center text-white'>pizzas</h2>
+        <h2 className='uppercase text-[32px] -mt-20 text-center text-white font-cinzel font-normal'>pizzas</h2>
         </SwiperSlide>
         <SwiperSlide><img src={slide3} alt="" />
-        <h2 className='uppercase text-4xl -mt-16 text-center text-white'>Soups</h2>
+        <h2 className='uppercase text-[32px] -mt-20 text-center text-white font-cinzel font-normal'>Soups</h2>
         </SwiperSlide>
         <SwiperSlide><img src={slide4} alt="" />
-        <h2 className='uppercase text-4xl -mt-16 text-center text-white'>Desserts</h2>
+        <h2 className='uppercase text-[32px] -mt-20 text-center text-white font-cinzel font-normal'>Desserts</h2>
         </SwiperSlide>
         <SwiperSlide><img src={slide5} alt="" />
-        <h2 className='uppercase text-4xl -mt-16 text-center text-white'>Salads</h2>
+        <h2 className='uppercase text-[32px] -mt-20 text-center text-white font-cinzel font-normal'>Salads</h2>
         </SwiperSlide>
       </Swiper>
        </div>
