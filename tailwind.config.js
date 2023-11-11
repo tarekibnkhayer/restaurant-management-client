@@ -10,6 +10,9 @@ export default {
         inter: "'Inter', sans-serif",
         cinzel: "'Cinzel', serif",
         raleWay: "'Raleway', sans-serif"
+      },
+      backgroundImage: {
+        
       }
     },
   },
