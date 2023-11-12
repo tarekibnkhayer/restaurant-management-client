@@ -5,6 +5,7 @@ import ChefRecommends from "../components/forHomePage/ChefRecommends";
 import ChefService from "../components/forHomePage/ChefService";
 import Featured from "../components/forHomePage/Featured";
 import PopularMenu from "../components/forHomePage/PopularMenu";
+import Testimonials from "../components/forHomePage/Testimonials";
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
             <CallUs></CallUs>
             <ChefRecommends></ChefRecommends>
             <Featured></Featured>
+            <Testimonials></Testimonials>
         </div>
     );
 };

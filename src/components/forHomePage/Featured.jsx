@@ -3,7 +3,7 @@ import img from '../../assets/home/featured.jpg'
 
 const Featured = () => {
     return (
-        <div className="bg-featured bg-center  bg-cover p-24 mb-32 h-[800px] bg-blend-darken bg-[#151515B3]">
+        <div className="bg-featured bg-center  bg-cover p-24 mb-32 h-[800px] bg-blend-darken bg-[#151515B3] bg-fixed">
             <SectionTitle heading="From Our Menu" subHeading="Check it out"></SectionTitle>
             <div className="flex items-center gap-12">
                 <div className=""><img src={img} alt=""  /></div>
