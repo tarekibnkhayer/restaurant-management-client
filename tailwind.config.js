@@ -12,7 +12,7 @@ export default {
         raleWay: "'Raleway', sans-serif"
       },
       backgroundImage: {
-        
+        featured: "url('/src/assets/home/featured.jpg')"
       }
     },
   },

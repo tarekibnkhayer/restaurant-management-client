@@ -3,6 +3,7 @@ import CallUs from "../components/forHomePage/CallUs";
 import Category from "../components/forHomePage/Category";
 import ChefRecommends from "../components/forHomePage/ChefRecommends";
 import ChefService from "../components/forHomePage/ChefService";
+import Featured from "../components/forHomePage/Featured";
 import PopularMenu from "../components/forHomePage/PopularMenu";
 
 
@@ -15,6 +16,7 @@ const Home = () => {
             <PopularMenu></PopularMenu>
             <CallUs></CallUs>
             <ChefRecommends></ChefRecommends>
+            <Featured></Featured>
         </div>
     );
 };
