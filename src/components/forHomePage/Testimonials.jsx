@@ -11,7 +11,7 @@ import axios from "axios";
 const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        axios.get('reviews.json')
+        axios.get('http://localhost:2626/reviews')
         .then(res => setReviews(res.data));
     },[])
     return (
