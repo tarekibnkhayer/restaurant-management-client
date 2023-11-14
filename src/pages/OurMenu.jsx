@@ -5,7 +5,6 @@ import dessertImg from '../assets/menu/dessert-bg.jpeg';
 import pizzaImg from '../assets/menu/pizza-bg.jpg';
 import saladImg from '../assets/menu/salad-bg.jpg';
 import soupImg from '../assets/menu/soup-bg.jpg';
-
 import SectionTitle from "../components/shared/SectionTitle";
 import ShowItems from "../components/shared/ShowItems";
 import useMenu from "../myHooks/useMenu";

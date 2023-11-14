@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../myHooks/useAuth";
 import { useForm } from 'react-hook-form';
 import { toast } from "react-toastify";
@@ -10,13 +10,23 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const {createUser, updateUserProfile} = useAuth();
   const onSubmit = data => {
     createUser(data.email, data.password)
     .then(() => {
       updateUserProfile(data.name, data.photo)
-      .then(() => toast("User created Successfully"))
+      .then(() => {
+        toast("User created Successfully")
+      if(location.state){
+        navigate(location.state)
+      }
+      else{
+        navigate("/");
+      }
+      })
       .catch(err => toast(err));
     })
     .catch(err => toast(err));

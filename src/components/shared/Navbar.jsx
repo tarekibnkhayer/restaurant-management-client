@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../myHooks/useAuth";
-
+import { TiShoppingCart } from "react-icons/ti";
+import useCart from "../../myHooks/useCart";
 
 const Navbar = () => {
   const {user, signOutUser} = useAuth();
+  const [cart] = useCart();
     const navLinks = <>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/contactUs">Contact Us</Link></li>
@@ -13,6 +15,10 @@ const Navbar = () => {
    {
     user?<>
      <li onClick={() => signOutUser()}><Link>Logout</Link></li>
+     <li><button className="text-2xl btn">
+     <TiShoppingCart />
+  <div className="badge badge-secondary">{cart.length}</div>
+</button></li>
     </>:<>
     <li><Link to="/login">Login</Link></li>
     </>
