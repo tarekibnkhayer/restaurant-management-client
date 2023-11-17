@@ -7,6 +7,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../pages/dashboard/dashboard";
+import MyCart from "../forDashBoard/MyCart";
 
 
 export  const router = createBrowserRouter([
@@ -35,5 +37,15 @@ export  const router = createBrowserRouter([
     {
       path:  '/register',
       element: <Register></Register>
+    },
+    {
+      path: '/dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: '/dashboard/myCart',
+          element: <MyCart></MyCart>
+        }
+      ]
     }
   ]);

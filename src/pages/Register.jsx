@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../myHooks/useAuth";
 import { useForm } from 'react-hook-form';
 import { toast } from "react-toastify";
+import useAxiosPublic from "../myHooks/useAxiosPublic";
 
 const Register = () => {
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -19,7 +21,14 @@ const Register = () => {
     .then(() => {
       updateUserProfile(data.name, data.photo)
       .then(() => {
-        toast("User created Successfully")
+        const user = {
+          name: data.name,
+          email: data.email
+        }
+        axiosPublic.post(`/users`, user)
+        .then(() => {
+          toast("User created Successfully");
+        })
       if(location.state){
         navigate(location.state)
       }

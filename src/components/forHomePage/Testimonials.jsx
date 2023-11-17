@@ -6,15 +6,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../../myHooks/useAxiosSecure";
+import useAxiosPublic from "../../myHooks/useAxiosPublic";
 
 const Testimonials = () => {
-    const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        axiosSecure.get('/reviews')
+        axiosPublic.get('/reviews')
         .then(res => setReviews(res.data));
-    },[axiosSecure])
+    },[axiosPublic])
     return (
         <div>
             <SectionTitle heading="Testimonials" subHeading="What Our Clients Say"></SectionTitle>

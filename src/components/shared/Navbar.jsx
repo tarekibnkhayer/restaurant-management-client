@@ -15,10 +15,10 @@ const Navbar = () => {
    {
     user?<>
      <li onClick={() => signOutUser()}><Link>Logout</Link></li>
-     <li><button className="text-2xl btn">
+     <li><Link to="/dashboard/myCart" className="text-2xl btn">
      <TiShoppingCart />
   <div className="badge badge-secondary">{cart.length}</div>
-</button></li>
+</Link></li>
     </>:<>
     <li><Link to="/login">Login</Link></li>
     </>
