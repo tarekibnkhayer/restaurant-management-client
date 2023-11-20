@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../pages/dashboard/dashboard";
 import MyCart from "../forDashBoard/MyCart";
+import AllUsers from "../components/forAdminDashboard/AllUsers";
+import AdminRoute from "./AdminRoute";
 
 
 export  const router = createBrowserRouter([
@@ -40,11 +42,16 @@ export  const router = createBrowserRouter([
     },
     {
       path: '/dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
           path: '/dashboard/myCart',
           element: <MyCart></MyCart>
+        },
+        // admin dashboard:
+        {
+          path: '/dashboard/allUsers',
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         }
       ]
     }

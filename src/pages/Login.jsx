@@ -3,10 +3,14 @@ import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import useAuth from "../myHooks/useAuth";
+import { FcGoogle } from "react-icons/fc";
+import useAxiosPublic from "../myHooks/useAxiosPublic";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const {signInUser} = useAuth();
+  const {signInUser, signInWithGoogle} = useAuth();
     const [disabled, setDisabled] = useState(true);
+    const axiosPublic = useAxiosPublic();
     const location = useLocation();
     const navigate = useNavigate();
     const handleLogin = e => {
@@ -39,6 +43,26 @@ const Login = () => {
           setDisabled(true);
       }
        }
+    };
+    const handleGoogleLogin = () => {
+      signInWithGoogle()
+      .then(res => {
+        const user = {
+          name: res.user?.displayName,
+          email: res.user?.email
+        };
+        axiosPublic.post("/users", user)
+        .then(res => {
+          if(res.data.insertedId){
+            return toast("User created");
+          }
+          else{
+            navigate("/");
+          }
+        } )
+        .catch(err => toast(err));
+      })
+      .catch(err => console.log(err));
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -71,6 +95,8 @@ const Login = () => {
               <div className="form-control mt-6">
                 <button disabled={disabled} className="btn btn-primary">Login</button>
               </div>
+              <hr />
+              <button onClick={handleGoogleLogin} className="mx-auto flex items-center justify-center gap-2"><FcGoogle className="text-2xl"></FcGoogle>Login With Google</button>
               <p>New to the website? <Link to='/register' className="underline text-blue-400">Please Register</Link></p>
             </form>
           </div>
