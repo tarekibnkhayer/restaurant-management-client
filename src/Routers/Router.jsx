@@ -13,6 +13,8 @@ import AllUsers from "../components/forAdminDashboard/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AddItems from "../components/forAdminDashboard/AddItems";
 import ManageItems from "../components/forAdminDashboard/ManageItems";
+import UpdateItem from "../components/forAdminDashboard/UpdateItem";
+import Payment from "../forDashBoard/Payment";
 
 
 export  const router = createBrowserRouter([
@@ -48,7 +50,11 @@ export  const router = createBrowserRouter([
       children: [
         {
           path: '/dashboard/myCart',
-          element: <MyCart></MyCart>
+          element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+        },
+        {
+          path: '/dashboard/payment',
+          element: <PrivateRoute><Payment></Payment></PrivateRoute>
         },
         // admin dashboard:
         {
@@ -62,6 +68,11 @@ export  const router = createBrowserRouter([
         {
           path: '/dashboard/manageItems',
           element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+        },
+        {
+          path: '/dashboard/updateItems/:id',
+          element: <AdminRoute><UpdateItem></UpdateItem>,</AdminRoute>,
+          loader:({params}) => fetch(`http://localhost:2626/menu/${params.id}`)
         }
       ]
     }

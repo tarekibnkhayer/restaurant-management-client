@@ -13,11 +13,16 @@ const OrderCard = ({item}) => {
   const [, refetch] = useCart();
   
     const {name, image, price, recipe} = item;
-    const handleAddToCart = id => {
+    const handleAddToCart = item => {
       if(user){
         const cart = {
-          menuId: id,
-          email: user.email
+          email: user.email,
+          name: item.name,
+          price: item.price,
+          image: item.image,
+          menuId: item._id,
+          category: item.category
+
         }
         axiosSecure.post('/carts', cart)
         .then((res) => {
@@ -44,7 +49,7 @@ const OrderCard = ({item}) => {
     <h2 className="card-title">{name}</h2>
     <p>{recipe}</p>
     <div className="card-actions">
-      <button className="btn btn-primary" onClick={() => handleAddToCart(item._id)}>Add to Cart</button>
+      <button className="btn btn-primary" onClick={() => handleAddToCart(item)}>Add to Cart</button>
     </div>
   </div>
 </div>

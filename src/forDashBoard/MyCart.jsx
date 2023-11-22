@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../components/shared/SectionTitle";
 import useCart from "../myHooks/useCart";
 import useAxiosSecure from "../myHooks/useAxiosSecure";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 
 const MyCart =() => {
   let serial = 1;
-    const [items, setItems] = useState([]);
     const axiosSecure = useAxiosSecure();
     const [cart, refetch] = useCart();
-    const cartMenuIds = cart.map(aCart => aCart.menuId);
-   useEffect(() => {
-    axiosSecure.get(`/menu?menuIds=${JSON.stringify(cartMenuIds)}`)
-    .then(res => setItems(res.data))
-   },[axiosSecure, cartMenuIds]);
-   const totalPrice = items.reduce((accumulator, item) => accumulator + item.price, 0);
+  //  useEffect(() => {
+  //   axiosSecure.get(`/menu?menuIds=${JSON.stringify(cartMenuIds)}`)
+  //   .then(res =>{
+  //      setItems(res.data)})
+  //  },[axiosSecure, cartMenuIds]);
+   const totalPrice = cart.reduce((accumulator, item) => accumulator + item.price, 0);
    const handleDelete = id => {
     axiosSecure.delete(`/carts/${id}`)
     .then(res => {
@@ -32,7 +31,7 @@ const MyCart =() => {
                <div className="flex justify-evenly items-center px-12 pt-14 pb-9">
                 <h2 className="text-3xl font-bold uppercase text-[#151515] font-cinzel">Total Orders: {cart.length}</h2>
                 <h2 className="text-3xl font-bold uppercase text-[#151515] font-cinzel">Total Price:  ${totalPrice.toFixed(2)}</h2>
-                <button className="bg-[#D1A054] px-5 py-4 rounded-lg text-xl font-bold font-cinzel text-[#FFF]">Pay</button>
+               <Link to="/dashboard/payment"> <button className="bg-[#D1A054] px-5 py-4 rounded-lg text-xl font-bold font-cinzel text-[#FFF]">Pay</button></Link>
                </div>
                {/* table */}
                <div className="overflow-x-auto">
@@ -52,7 +51,7 @@ const MyCart =() => {
     </thead>
     <tbody>
      {
-        items.map(item => <tr key={item._id}>
+        cart.map(item => <tr key={item._id}>
             <th>
               {serial++}
             </th>
