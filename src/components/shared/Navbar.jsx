@@ -2,14 +2,21 @@ import { Link } from "react-router-dom";
 import useAuth from "../../myHooks/useAuth";
 import { TiShoppingCart } from "react-icons/ti";
 import useCart from "../../myHooks/useCart";
+import useAdmin from "../../myHooks/useAdmin";
 
 const Navbar = () => {
   const {user, signOutUser} = useAuth();
+  const [isAdmin] = useAdmin();
   const [cart] = useCart();
     const navLinks = <>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/contactUs">Contact Us</Link></li>
-    <li><Link to="/dashboard">Dashboard</Link></li>
+   {
+    user && isAdmin &&  <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
+   }
+   {
+    user && !isAdmin &&  <li><Link to="/dashboard/userHome">Dashboard</Link></li>
+   }
     <li><Link to="/ourMenu">Our Menu</Link></li>
     <li><Link to="/ourShop/salad">Our Shop</Link></li>
    {
